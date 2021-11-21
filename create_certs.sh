@@ -10,6 +10,8 @@ if [ -f "$cert_file" ]; then
 else 
 
     sed "s/domain_name/${DOMAIN_NAME}/g" conf_sample.txt > $conf_file
+    sed -i "s/internal_server_name/${INTERNAL_SERVER_NAME}/g" $conf_file
+    sed -i "s/internal_server_port/${INTERNAL_SERVER_PORT}/g" $conf_file
     nginx -t && nginx -s reload
     certbot --noninteractive --nginx -d ${DOMAIN_NAME} --agree-tos --register-unsafely-without-email
 

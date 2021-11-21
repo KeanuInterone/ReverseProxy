@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 # RUN SET UP SCRIPT
 COPY conf_sample.txt /
-COPY ./create_certs.sh /create_certs.sh
+COPY ./create_certs.sh /
 RUN chmod u+x /create_certs.sh
 
 # EXPOSE PORTS
